@@ -1,0 +1,13 @@
+*.jpug
+
+*.exe
+
+.vscode/
+.vscode/*
+
+*.drawio
+
+__pycache__
+*.pyc
+
+*.bmp
