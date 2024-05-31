@@ -2,10 +2,10 @@
 Implementation of a simple version of the ***JPG*** format.
 
 ## DCT2
-The <code>dct2</code> folder contains a simple benchmark over different implementations of the ***Discrete Cosine Transform 2-Dimensional***  algorithm. 
+The <code>dct2</code> folder contains a simple benchmark over different implementations of the ***Discrete Cosine Transform 2-dimensional***  algorithm. 
 
 ## JPUG
-The <code>jpug</code> folder contains a ***CLI*** program that can be used for testing a simple version of the ***JPG*** format, whose details are described in <code>examples/project.pdf</code>. 
+The <code>jpug</code> folder contains a ***CLI*** program that can be used for testing a simple version of the ***JPG*** format, whose details are described in <code>doc/project.pdf</code>. 
 
 ### Parameters
 The three parameters used are:
