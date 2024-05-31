@@ -9,8 +9,8 @@ class Operation(Enum):
     STATS = 5
     EXIT = 6
 
-def get_enum_from_value(value:int) -> Operation:
-    for op in Operation:
+def get_enum_from_value(value:int, enum:Enum=Operation) -> Operation:
+    for op in enum:
         if op.value == value:
             return op
         
@@ -29,8 +29,8 @@ INVALID_FORMAT_MSG = 'File format not valid'
 INVALID_ARGS_MSG = 'Invalid number of arguments'
 
 class Mode(Enum):
-    L = 0
-    RGB = 1
+    L = 'L'
+    RGB = 'RGB'
 
 DEFAULT_MODE = Mode.RGB
 DEFAULT_F = 8

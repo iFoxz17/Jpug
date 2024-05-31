@@ -27,6 +27,20 @@ class Encoder_Controller:
         
         self._set_mode(default_mode)
 
+    def _initialize_rgb_encoder(self) -> None:
+        '''
+        Initialize the RGB encoder.
+        '''
+
+        self._rgb_encoder = RGB_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+
+    def _initialize_l_encoder(self) -> None:
+        '''
+        Initialize the L encoder.
+        '''
+
+        self._l_encoder = L_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+
     def _set_mode(self, mode:Util.Mode) -> None:
         '''
         Set the mode of the encoder.
@@ -43,11 +57,12 @@ class Encoder_Controller:
         '''
         if self._mode == Util.Mode.L:
             if self._l_encoder is None:
-                self._l_encoder = L_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+                self._initialize_l_encoder()
             self._active_encoder = self._l_encoder
+
         elif self._mode == Util.Mode.RGB:
             if self._rgb_encoder is None:
-                self._rgb_encoder = RGB_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+                self._initialize_rgb_encoder()
             self._active_encoder = self._rgb_encoder
 
     def change_mode(self) -> None:
@@ -99,6 +114,10 @@ class Encoder_Controller:
 
         @return: The RGB encoder.
         '''
+
+        if self._rgb_encoder is None:
+            self._initialize_rgb_encoder()
+
         return self._rgb_encoder
     
     def get_l_encoder(self) -> L_Encoder:
@@ -107,4 +126,8 @@ class Encoder_Controller:
 
         @return: The L encoder.
         '''
+
+        if self._l_encoder is None:
+            self._initialize_l_encoder()
+        
         return self._l_encoder

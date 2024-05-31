@@ -51,7 +51,7 @@ class Controller():
             img = self._encoder_controller.get_rgb_encoder().decode(jpug)
         elif isinstance(jpug, Jpug_L):
             img = self._encoder_controller.get_l_encoder().decode(jpug)
-        
+
         decoded_path = Util.compute_decoded_path(path)
         Parser.save_image(img, decoded_path)
 
