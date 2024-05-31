@@ -41,5 +41,11 @@ Where not specified, the following default values are used:
 - $d = 8$
 - *mode = RGB*
 
+## Dependencies
+- [numpy](https://numpy.org/)
+- [PIL](https://pypi.org/project/pillow)
+- [pickle](https://docs.python.org/3/library/pickle.html)
+- [fft](https://numpy.org/doc/stable/reference/routines.fft.html)
+
 
 
