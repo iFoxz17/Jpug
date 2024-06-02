@@ -2,19 +2,43 @@ import controller.Util as Util
 from controller.Controller import Controller
 
 from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
 
 class UI:
 
-    def __init__(self):
-        self._view = None
+    DEFAULT_IMAGE_SIZE_THRESHOLD = 1000000
 
-    def _show(self, result:any) -> None:
+    def __init__(self, image_size_threshold:int=DEFAULT_IMAGE_SIZE_THRESHOLD) -> None:
+        self._image_size_threshold = image_size_threshold
+
+    def _show(self, result:any, path:str=None) -> None:
+        '''
+        Output the result of an operation
+
+        @param result: the result of the operation. It can be a string or an image. If is an image, it will be displayed
+        according to its size: image.show() creates a PNG copy of the image on the disk, so it is not recommended for large images.
+        Use instead matplotlib to display large images.
+        '''
         if isinstance(result, str):
             print(f'> {result}')
         elif isinstance(result, Image.Image):
             print(f'> Loading image...')
-            result.show()
+            
+            width, height = result.size
+            if width * height <= self._image_size_threshold:
+                result.show(title=path if path is not None else 'Image')
+            else:
+                fig, ax = plt.subplots(figsize=(10, 5)) 
 
+                image_array = np.array(result)
+                ax.imshow(image_array)
+                ax.axis('off')  
+
+                fig.canvas.manager.set_window_title(path if path is not None else 'Image')
+
+                plt.show(block=False)
+            
     def start_ui(self) -> None:
         controller = Controller.get_instance()
 
@@ -46,6 +70,7 @@ class UI:
                 continue
             
             params = []
+            path = None
 
             if operation == Util.Operation.SHOW or operation == Util.Operation.ENCODE or operation == Util.Operation.DECODE:
                 path = input('< Enter path: ')
@@ -74,7 +99,7 @@ class UI:
                 params.append(d)
 
             result = controller.execute(operation, params)
-            self._show(result)
+            self._show(result, path)
            
             if operation == Util.Operation.EXIT:
                 break
