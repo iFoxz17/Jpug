@@ -41,5 +41,11 @@ Where not specified, the following default values are used:
 - $d = 8$
 - *mode = RGB*
 
+## Dependencies
+- [numpy](https://numpy.org/): Linear algebra for python;
+- [PIL](https://python-pillow.org/): *Python Image Library*;
+- [pickle](https://docs.python.org/3/library/pickle.html): Python object *serialization*;
+- [fft](https://numpy.org/doc/stable/reference/routines.fft.html): *Fast Fourier Transform* (***dct2*** implementation)
+
 
 
