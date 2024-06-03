@@ -6,7 +6,7 @@ class Encoder():
     Encoder class for encoding and decoding vectors according to the format.
     '''
 
-    DEFAULT_FLOAT_DTYPE = np.float32
+    DEFAULT_FLOAT_DTYPE = np.float16
 
     def __init__(self, F:int=8, d:int=8, float_dtype:np.dtype=DEFAULT_FLOAT_DTYPE) -> None:
         ''' 

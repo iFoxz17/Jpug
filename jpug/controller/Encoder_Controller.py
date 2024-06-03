@@ -32,14 +32,14 @@ class Encoder_Controller:
         Initialize the RGB encoder.
         '''
 
-        self._rgb_encoder = RGB_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+        self._rgb_encoder = RGB_Encoder(Util.DEFAULT_F, Util.DEFAULT_D, Util.DEFAULT_FLOAT_DTYPE)
 
     def _initialize_l_encoder(self) -> None:
         '''
         Initialize the L encoder.
         '''
 
-        self._l_encoder = L_Encoder(Util.DEFAULT_F, Util.DEFAULT_D)
+        self._l_encoder = L_Encoder(Util.DEFAULT_F, Util.DEFAULT_D, Util.DEFAULT_FLOAT_DTYPE)
 
     def _set_mode(self, mode:Util.Mode) -> None:
         '''

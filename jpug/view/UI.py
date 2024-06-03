@@ -7,7 +7,7 @@ import numpy as np
 
 class UI:
 
-    DEFAULT_IMAGE_SIZE_THRESHOLD = 1000000
+    DEFAULT_IMAGE_SIZE_THRESHOLD = 5000000
 
     def __init__(self, image_size_threshold:int=DEFAULT_IMAGE_SIZE_THRESHOLD) -> None:
         self._image_size_threshold = image_size_threshold

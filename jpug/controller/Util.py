@@ -35,6 +35,7 @@ class Mode(Enum):
 DEFAULT_MODE = Mode.RGB
 DEFAULT_F = 8
 DEFAULT_D = 8
+DEFAULT_FLOAT_DTYPE = 'float16'
 
 JPUG_EXTENSION = '.jpug'
 IMAGE_EXTENSION = '.bmp'
