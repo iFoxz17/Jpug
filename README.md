@@ -42,10 +42,12 @@ Where not specified, the following default values are used:
 - *mode = RGB*
 
 ## Dependencies
+List of all the **dependecies** to run the program (can be installed with <code>pip install</code>):
 - [numpy](https://numpy.org/): Linear algebra for python;
 - [PIL](https://python-pillow.org/): *Python Image Library*;
 - [pickle](https://docs.python.org/3/library/pickle.html): Python object *serialization*;
-- [fft](https://numpy.org/doc/stable/reference/routines.fft.html): *Fast Fourier Transform* (***dct2*** implementation)
+- [fft](https://numpy.org/doc/stable/reference/routines.fft.html): *Fast Fourier Transform* (***dct2*** implementation);
+- [matplotlib](https://matplotlib.org/): Large image visualization
 
 
 
