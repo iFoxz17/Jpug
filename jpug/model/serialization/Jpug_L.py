@@ -31,7 +31,7 @@ class Jpug_L(Jpug):
         self._v = v
 
     def __str__(self) -> str:
-        return f'Jpug_L({super().__str__()}, v_shape={self.get_v().shape})'
+        return f'Jpug_L({super().__str__()}, v_shape={self.get_v().shape}, v_type={self.get_v().dtype}'
     
     def __repr__(self) -> str:
         return self.__str__()

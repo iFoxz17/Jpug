@@ -61,7 +61,7 @@ class Jpug_RGB(Jpug):
         self._B = B
 
     def __str__(self) -> str:
-        return f'Jpug_RGB({super().__str__()}, R_shape={self.get_R().shape}, G_shape={self.get_G().shape}, B_shape={self.get_B().shape})'
+        return f'Jpug_RGB({super().__str__()}, R_shape={self.get_R().shape}, G_shape={self.get_G().shape}, B_shape={self.get_B().shape}, v_type={self.get_R().dtype})'
     
     def __repr__(self) -> str:
         return self.__str__()
