@@ -38,7 +38,11 @@ class Controller():
     def _encode(self, path:str) -> None:
         img = self._retrieve_image(path)
 
-        jpug = self._encoder_controller.get_active_encoder().encode(img)
+        if img.mode == 'L':
+            jpug = self._encoder_controller.get_l_encoder().encode(img)
+        else:
+            jpug = self._encoder_controller.get_active_encoder().encode(img)
+        
         encoded_path = Util.compute_encoded_path(path, self._encoder_controller.get_active_mode())
         Parser.save_jpug(jpug, encoded_path)
 

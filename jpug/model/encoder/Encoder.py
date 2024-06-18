@@ -47,7 +47,7 @@ class Encoder():
         @param float_dtype: The float dtype of the encoder.
         '''
 
-        assert np.issubdtype(float_dtype, np.floating), 'The float dtype must be a floating point type.'
+        assert np.issubdtype(float_dtype, np.floating) or float_dtype==np.int8, 'The float dtype must be a floating point type or int8.'
 
         self._float_dtype = float_dtype
 
@@ -193,7 +193,7 @@ class Encoder():
                 block[triu_secondary_idx[0], triu_secondary_idx[1]] = compressed_v[i, j]
 
         return v
-
+ 
 
     def encode(self, v:np.ndarray) -> np.ndarray:
         '''
@@ -213,7 +213,10 @@ class Encoder():
         blocks_v = self._compute_blocks_vector(rearranged_v)
 
         transformed_blocks_v = dctn(blocks_v, axes=(2, 3), type=2, norm='ortho')
-        
+
+        if self.get_float_dtype() == np.int8:
+            transformed_blocks_v = np.round(np.clip(transformed_blocks_v, -128, 127)).astype(np.int8)
+
         compressed_blocks_v = self._compress(transformed_blocks_v)
 
         return compressed_blocks_v
@@ -234,7 +237,7 @@ class Encoder():
         decompressed_blocks_v = self._decompress(compressed_v)
 
         blocks_v = idctn(decompressed_blocks_v, axes=(2, 3), type=2, norm='ortho')
-        
+
         blocks_v = np.round(np.clip(blocks_v, 0, 255)).astype(np.uint8)
 
         v = self._compute_vector_from_blocks(blocks_v)

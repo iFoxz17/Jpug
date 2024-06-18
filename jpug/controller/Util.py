@@ -1,4 +1,5 @@
 from enum import Enum
+import numpy as np
 
 class Operation(Enum):
     SWITCH_MODE = 0
@@ -35,7 +36,7 @@ class Mode(Enum):
 DEFAULT_MODE = Mode.RGB
 DEFAULT_F = 8
 DEFAULT_D = 8
-DEFAULT_FLOAT_DTYPE = 'float16'
+DEFAULT_FLOAT_DTYPE = np.float16
 
 JPUG_EXTENSION = '.jpug'
 IMAGE_EXTENSION = '.bmp'
