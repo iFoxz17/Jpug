@@ -49,5 +49,6 @@ List of all the **dependecies** to run the program (can be installed with <code>
 - [fft](https://numpy.org/doc/stable/reference/routines.fft.html): *Fast Fourier Transform* (***dct2*** implementation);
 - [matplotlib](https://matplotlib.org/): Large image visualization
 
-
+To install all the dependencies run:
+<code>pip install -r requirements.txt</code>
 
